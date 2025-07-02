@@ -44,11 +44,46 @@ function adjustDistribution(distribution: Record<string, number>, key: string, d
 
     const redistributedDelta = delta / (keys.length - 1);
 
-    for (const key of keys) {
-        distribution[key] -= redistributedDelta;
+    for (const _key of keys) {
+        if (_key === key) {
+            distribution[_key] = newProbability;
+        } else {
+            distribution[_key] -= redistributedDelta;
+        }
     }
-
-    distribution[key] = newProbability;
 }
 
-export { selectKey, adjustDistribution };
+function calculateAverageProbability(distribution: Record<string, number>): number | null {
+    const keys = Object.keys(distribution);
+
+    if (!keys.length) {
+        return null;
+    }
+
+    let cumulative = 0;
+
+    for (const key of keys) {
+        cumulative += distribution[key];
+    }
+
+    return cumulative / keys.length;
+}
+
+function addKey(distribution: Record<string, number>, key: string, probability?: number) {
+    distribution[key] = 0;
+
+    if (probability === undefined) {
+        const average = calculateAverageProbability(distribution);
+        if (average === null) probability = 1;
+        else probability = average;
+    }
+
+    adjustDistribution(distribution, key, probability);
+}
+
+function removeKey(distribution: Record<string, number>, key: string) {
+    adjustDistribution(distribution, key, -1);
+    delete distribution[key];
+}
+
+export { addKey, removeKey, selectKey, adjustDistribution };
