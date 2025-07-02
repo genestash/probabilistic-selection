@@ -32,11 +32,11 @@ function adjustDistribution(distribution: Record<string, number>, key: string, d
     }
 }
 
-function calculateAverageProbability(distribution: Record<string, number>): number | null {
+function calculateNewProbability(distribution: Record<string, number>): number {
     const keys = Object.keys(distribution);
 
     if (!keys.length) {
-        return null;
+        return 1;
     }
 
     let cumulative = 0;
@@ -45,7 +45,7 @@ function calculateAverageProbability(distribution: Record<string, number>): numb
         cumulative += distribution[key];
     }
 
-    return cumulative / keys.length;
+    return cumulative / (keys.length + 1);
 }
 
-export { adjustDistribution, calculateAverageProbability };
+export { adjustDistribution, calculateNewProbability };

@@ -1,4 +1,4 @@
-import { adjustDistribution, calculateAverageProbability } from './distributionManagement';
+import { adjustDistribution, calculateNewProbability } from './distributionManagement';
 
 function selectKey(distribution: Record<string, number>): string | null {
     const keys = Object.keys(distribution);
@@ -22,14 +22,11 @@ function selectKey(distribution: Record<string, number>): string | null {
 }
 
 function addKey(distribution: Record<string, number>, key: string, probability?: number) {
-    distribution[key] = 0;
-
     if (probability === undefined) {
-        const average = calculateAverageProbability(distribution);
-        if (average === null) probability = 1;
-        else probability = average;
+        probability = calculateNewProbability(distribution);
     }
 
+    distribution[key] = 0;
     adjustDistribution(distribution, key, probability);
 }
 
