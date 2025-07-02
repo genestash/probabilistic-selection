@@ -25,12 +25,20 @@ addKey(distribution, 'alice'); // distribution = { bob: 0.5, alice: 0.5 };
 addKey(distribution, 'eve', 0.2); // distribution = { bob: 0.4, alice: 0.4, eve: 0.2 };
 ```
 
+Adjust the distribution:
+
+```ts
+import { adjustDistribution } from 'probabilistic-selection';
+
+adjustDistribution(distribution, 'bob', -0.1); // distribution = { bob: 0.3, alice: 0.45, eve: 0.25 };
+```
+
 Remove a key:
 
 ```ts
 import { removeKey } from 'probabilistic-selection';
 
-removeKey(distribution, 'alice'); // distribution = { bob: 0.6, eve: 0.4 };
+removeKey(distribution, 'bob'); // distribution = { alice: 0.60, eve: 0.40 };
 ```
 
 Select a random key:
