@@ -1,6 +1,5 @@
 // @ts-nocheck
 
-import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import { defineConfig } from 'eslint/config';
 
@@ -11,7 +10,6 @@ export default defineConfig([
     ...tseslint.configs.recommended,
     {
         languageOptions: {
-            globals: globals.browser,
             parser: tseslint.parser
         },
         plugins: {

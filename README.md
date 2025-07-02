@@ -1,5 +1,5 @@
 # probabilistic-selection
-Probabilistic selection and probabilities adjustment over a discrete key distribution.
+Probabilistic selection from a discrete key distribution.
 
 ### Installation:
 
