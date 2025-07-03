@@ -1,11 +1,11 @@
 import { adjustDistribution } from './distributionManagement';
-import { selectKey, addKey, removeKey } from './keysManagement';
+import { selectKey, addKey, deleteKey } from './keysManagement';
 
 export default {
     selectKey,
     addKey,
-    removeKey,
+    deleteKey,
     adjustDistribution
 };
 
-export { selectKey, addKey, removeKey, adjustDistribution };
+export { selectKey, addKey, deleteKey, adjustDistribution };

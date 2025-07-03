@@ -33,10 +33,10 @@ Adjust the distribution:
 ps.adjustDistribution(distribution, 'bob', -0.1); // distribution = { bob: 0.3, alice: 0.45, eve: 0.25 }
 ```
 
-Remove the key:
+Delete the key:
 
 ```ts
-ps.removeKey(distribution, 'bob'); // distribution = { alice: 0.6, eve: 0.4 }
+ps.deleteKey(distribution, 'bob'); // distribution = { alice: 0.6, eve: 0.4 }
 ```
 
 Select a random key:

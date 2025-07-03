@@ -30,9 +30,9 @@ function addKey(distribution: Record<string, number>, key: string, probability?:
     adjustDistribution(distribution, key, probability);
 }
 
-function removeKey(distribution: Record<string, number>, key: string) {
+function deleteKey(distribution: Record<string, number>, key: string) {
     adjustDistribution(distribution, key, -1);
     delete distribution[key];
 }
 
-export { selectKey, addKey, removeKey };
+export { selectKey, addKey, deleteKey };
