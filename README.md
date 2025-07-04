@@ -30,10 +30,10 @@ ps.addKey(distribution, 'eve', 0.2);
 // distribution = { bob: 0.4, alice: 0.4, eve: 0.2 }
 ```
 
-Adjust the distribution:
+Adjust the key:
 
 ```ts
-ps.adjustDistribution(distribution, 'bob', -0.1);
+ps.adjustKey(distribution, 'bob', -0.1);
 // distribution = { bob: 0.3, alice: 0.45, eve: 0.25 }
 ```
 
