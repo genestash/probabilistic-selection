@@ -5,7 +5,7 @@ import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
     {
-        ignores: ['*', '!src']
+        ignores: ['*', '!src', '!tests']
     },
     ...tseslint.configs.recommended,
     {
